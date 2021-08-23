@@ -74,7 +74,6 @@ void TestReverse()
     {
         List one = {nullptr, 1};
         List two = {&one, 2};
-        List three = {&two, 3};
 
         assert(Reverse(nullptr, 0) == nullptr);
         assert(Reverse(&one, 1) == &one);
@@ -132,7 +131,7 @@ bool IsPalindrome(List* list, const char* name)
 
     size_t size = Size(list);
 
-    if (size == 1)
+    if (size < 2)
         return true;
 
     List* tail = nullptr;
@@ -161,15 +160,13 @@ int main()
 
     {
         List one = {nullptr, 1};
-        List two = {&one, 2};
-        List three = {&two, 3};
         printf(" %d\n", IsPalindrome(&one, "one"));
     }
 
+    // some non-palindromes
     {
         List one = {nullptr, 1};
         List two = {&one, 2};
-        List three = {&two, 3};
         printf(" %d\n", IsPalindrome(&two, "two"));
     }
 
@@ -188,7 +185,7 @@ int main()
         printf(" %d\n", IsPalindrome(&four, "four"));
     }
 
-    // now some palindroms
+    // now some palindromes
     {
         List one = {nullptr, 2};
         List ptwo = {&one, 2};
