@@ -150,6 +150,7 @@ int main()
     List one = {nullptr, 1};
     List two = {&one, 2};
     List three = {&two, 3};
+    bool r = false;
 
     Print(&one, "one");
     Print(&two, "two");
@@ -158,22 +159,30 @@ int main()
     TestReverse();
 
     {
+        printf(" %d\n", r = IsPalindrome(nullptr, "null"));
+        assert(r);
+    }
+
+    {
         List one = {nullptr, 1};
-        printf(" %d\n", IsPalindrome(&one, "one"));
+        printf(" %d\n", r = IsPalindrome(&one, "one"));
+        assert(r);
     }
 
     // some non-palindromes
     {
         List one = {nullptr, 1};
         List two = {&one, 2};
-        printf(" %d\n", IsPalindrome(&two, "two"));
+        printf(" %d\n", r = IsPalindrome(&two, "two"));
+        assert(!r);
     }
 
     {
         List one = {nullptr, 1};
         List two = {&one, 2};
         List three = {&two, 3};
-        printf(" %d\n", IsPalindrome(&three, "three"));
+        printf(" %d\n", r = IsPalindrome(&three, "three"));
+        assert(!r);
     }
 
     {
@@ -181,21 +190,24 @@ int main()
         List two = {&one, 2};
         List three = {&two, 3};
         List four = {&three, 4};
-        printf(" %d\n", IsPalindrome(&four, "four"));
+        printf(" %d\n", r = IsPalindrome(&four, "four"));
+        assert(!r);
     }
 
     // now some palindromes
     {
         List one = {nullptr, 2};
         List ptwo = {&one, 2};
-        printf(" %d\n", IsPalindrome(&ptwo, "ptwo"));
+        printf(" %d\n", r = IsPalindrome(&ptwo, "ptwo"));
+        assert(r);
     }
 
     {
         List one = {nullptr, 3};
         List two = {&one, 2};
         List pthree = {&two, 3};
-        printf(" %d\n", IsPalindrome(&pthree, "pthree"));
+        printf(" %d\n", r = IsPalindrome(&pthree, "pthree"));
+        assert(r);
     }
 
     {
@@ -203,6 +215,7 @@ int main()
         List two = {&one, 2};
         List three = {&two, 2};
         List pfour = {&three, 1};
-        printf(" %d\n", IsPalindrome(&pfour, "pfour"));
+        printf(" %d\n", r = IsPalindrome(&pfour, "pfour"));
+        assert(r);
     }
 }
