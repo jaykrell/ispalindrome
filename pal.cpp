@@ -1,3 +1,9 @@
+// Problem statement:
+//
+// Determine if a singly linked list is a palindrome.
+// Run in linear (to length of list) time, with fixed space.
+// The list can be mutated, i.e. reversed.
+//
 #include <stdio.h>
 #include <assert.h>
 
