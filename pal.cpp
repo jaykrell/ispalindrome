@@ -47,9 +47,6 @@ void TestSize()
 
 List* Reverse(List* list, size_t size, List** rest = nullptr)
 {
-    if (!list)
-        return list;
-
     List* prev = nullptr;
 
     while (size)
