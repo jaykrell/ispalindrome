@@ -50,11 +50,10 @@ List* Reverse(List* list, size_t size, List** rest = nullptr)
     if (!list)
         return list;
 
-    List* next = list->next;
-    list->next = nullptr;
-    List* prev = list;
+    List* next = list;
+    List* prev = nullptr;
 
-    while (size > 1)
+    while (size)
     {
         List* next_next = next->next;
         next->next = prev;
